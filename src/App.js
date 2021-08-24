@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import SearchBars from './components/SearchBars';
+import GetStudentData from './scripts/getStudentData';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const studentData = GetStudentData();
+  if (studentData) {
+    const students = studentData.students;
+    return (
+      <div className="App">
+        <SearchBars students={students} />
+      </div>
+    );
+
+  } else {
+    return (
+      <p>Loading...</p>
+    )
+  }
 }
 
 export default App;
