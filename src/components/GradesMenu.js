@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import Collapsible from "react-collapsible"
 
+// from Feedback:
+// useRef and memoization?
+
 const ToggleOpen = () => {
     const [ toggle, setToggle ] = useState(false);
     const trigger = () => {
